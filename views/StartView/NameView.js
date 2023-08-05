@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
 
   text: {
     fontSize: 32,
-    fontWeight: 'bold'
+    fontWeight: 900
   },
 
   p: {
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
 
   btnTxt: {
     color: '#fff',
-    fontWeight: "600",
+    fontWeight: 600,
     fontSize: 20
   }
 })

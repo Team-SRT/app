@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
 
     text: {
         fontSize: 32,
-        fontWeight: 'bold'
+        fontWeight: 900
     },
 
     p: {

@@ -6,7 +6,7 @@ import Svg, {G, Path} from "react-native-svg"
 import Call from '../../assets/img/call.png'
 import {LinearGradient} from "expo-linear-gradient"
 
-export default function CallView ({ navigation }) {
+export default function CallView({navigation}) {
     const [call, setCall] = useState('')
 
     return (
@@ -17,7 +17,8 @@ export default function CallView ({ navigation }) {
                         {/* Arrow */}
                         <Svg width="40" height="35" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <G id="chevron-left">
-                                <Path id="Vector" d="M14.6667 17.9166L7.33334 11.5L14.6667 5.08331" stroke="#42464A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <Path id="Vector" d="M14.6667 17.9166L7.33334 11.5L14.6667 5.08331" stroke="#42464A"
+                                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </G>
                         </Svg>
                     </View>
@@ -25,20 +26,20 @@ export default function CallView ({ navigation }) {
                 </View>
 
                 <View style={styles.contain}>
-                    <Image source={Call} style={styles.name} />
+                    <Image source={Call} style={styles.name}/>
                     <Text style={styles.text}>를 입력해주세요</Text>
                 </View>
 
                 <Text style={styles.p}>본인의 전화번호를 입력해주세요</Text>
 
-                <TextInput placeholder={'ex) 010-1234-5678'} style={styles.textField} />
+                <TextInput placeholder={'ex) 010-1234-5678'} style={styles.textField} onChangeText={(e) => setCall(e)}/>
             </View>
 
-            <LinearGradient colors={['#85F4FF', '#0CF']} start={{ x: 0, y: 0}} end={{x: 1, y: 1}} style={styles.gradient}
+            <LinearGradient colors={['#85F4FF', '#0CF']} start={{x: 0, y: 0}} end={{x: 1, y: 1}} style={styles.gradient}
                             onTouchEnd={async () => {
-                              console.log(`Call: ${call}`)
-                              await asyncStorage.setItem('call', call)
-                              navigation.navigate('Complete')
+                                console.log(`Call: ${call}`)
+                                await asyncStorage.setItem('call', call)
+                                navigation.navigate('Complete')
                             }}>
                 <Text style={styles.btnTxt}>다음으로</Text>
             </LinearGradient>
@@ -93,7 +94,7 @@ const styles = StyleSheet.create({
 
     text: {
         fontSize: 32,
-        fontWeight: 'bold'
+        fontWeight: 900
     },
 
     p: {
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
 
     btnTxt: {
         color: '#fff',
-        fontWeight: "600",
+        fontWeight: 600,
         fontSize: 20
     }
 })
