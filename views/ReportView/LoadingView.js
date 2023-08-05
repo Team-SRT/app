@@ -3,8 +3,13 @@ import {View, StyleSheet, Text, Image, TextInput} from "react-native"
 import Loading from '../../assets/img/loading.png'
 import LoadingText from '../../assets/img/loadingText.png'
 import {LinearGradient} from "expo-linear-gradient"
+import {useEffect} from "react";
 
 export default function LoadingView ({ navigation }) {
+    useEffect(() => {
+        setTimeout(() => navigation.navigate('Done'), 2000)
+    }, [])
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -17,7 +22,7 @@ export default function LoadingView ({ navigation }) {
                 <Image source={Loading} style={styles.loading} />
             </View>
 
-            <LinearGradient colors={['#52C192', '#0C4E30']} start={{ x: 0, y: 0}} end={{x: 1, y: 1}} style={styles.gradient} onTouchEnd={() => navigation.navigate('Call')}>
+            <LinearGradient colors={['#52C192', '#0C4E30']} start={{ x: 0, y: 0}} end={{x: 1, y: 1}} style={styles.gradient} onTouchEnd={() => navigation.navigate('Main')}>
                 <Text style={styles.btnTxt}>돌아가기</Text>
             </LinearGradient>
         </View>

@@ -17,7 +17,7 @@ export default function DoneView ({ navigation }) {
                 <Image source={Check} style={styles.check} />
             </View>
 
-            <LinearGradient colors={['#85F4FF', '#0CF']} start={{ x: 0, y: 0}} end={{x: 1, y: 1}} style={styles.gradient} onTouchEnd={() => navigation.navigate('Call')}>
+            <LinearGradient colors={['#85F4FF', '#0CF']} start={{ x: 0, y: 0}} end={{x: 1, y: 1}} style={styles.gradient} onTouchEnd={() => navigation.navigate('Main')}>
                 <Text style={styles.btnTxt}>완료하기</Text>
             </LinearGradient>
         </View>

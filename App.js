@@ -6,10 +6,11 @@ import StartView from './views/StartView/StartView'
 import NameView from './views/StartView/NameView'
 import EmailView from './views/StartView/EmailView'
 import CallView from './views/StartView/CallView'
-import DoneView from "./views/ReportView/DoneView";
-import ErrorView from "./views/ReportView/ErrorView";
+import DoneView from "./views/ReportView/DoneView"
+import ErrorView from "./views/ReportView/ErrorView"
 import CompleteView from './views/StartView/CompleteView'
 import MainView from './views/MainView/MainView'
+import LoadingView from "./views/ReportView/LoadingView";
 
 export default function App() {
   const Stack = createNativeStackNavigator()
@@ -23,6 +24,9 @@ export default function App() {
         <Stack.Screen name={'Call'} component={CallView} options={{ headerShown: false }} />
         <Stack.Screen name={'Complete'} component={CompleteView} options={{ headerShown: false }} />
         <Stack.Screen name={'Main'} component={MainView} options={{ headerShown: false }} />
+        <Stack.Screen name={'Done'} component={DoneView} options={{ headerShown: false }} />
+        <Stack.Screen name={'Error'} component={ErrorView} options={{ headerShown: false }} />
+        <Stack.Screen name={'Loading'} component={LoadingView} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   )

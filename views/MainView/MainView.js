@@ -1,9 +1,10 @@
 import {useEffect, useRef, useState} from "react"
-import {Image, StyleSheet, TouchableOpacity, View} from "react-native"
+import {Alert, Image, StyleSheet, TouchableOpacity, View} from "react-native"
 import Svg, {   Path} from "react-native-svg"
 import {Camera} from "expo-camera"
 
 import Capture from '../../assets/img/wave.png'
+import axios from "axios";
 
 export default function MainView({ navigation }) {
     const [camera, setCamera] = useState(null)
@@ -17,13 +18,6 @@ export default function MainView({ navigation }) {
             setHasPermission(status === 'granted')
         })()
     }, [])
-
-    const takePicture = async() => {
-        if (camera) {
-            const data = await camera.takePictureAsync(null)
-            setImage(data.url)
-        }
-    }
 
     if (hasPermission === null) {
         return <View />
@@ -62,6 +56,15 @@ export default function MainView({ navigation }) {
                     const data = await camera.takePictureAsync(null)
                     setImage(data.uri)
                     console.log(data.uri)
+
+                    setTimeout(() => {}, 1000)
+                    navigation.navigate('Loading')
+
+                    // const toPy = new FormData()
+                    // toPy.append('file', data.uri)
+                    //
+                    // axios.post('http://15.164.217.71:1234/classify_image', data.uri)
+                    //     .then(resp => console.log(resp.data))
                 }
             }}>
                 <Image source={Capture} style={styles.capture} />
@@ -80,7 +83,7 @@ const styles = StyleSheet.create({
 
     appbar: {
         width: '80%',
-        marginTop: 80
+        marginTop: '20%'
     },
 
     camera: {
@@ -107,6 +110,6 @@ const styles = StyleSheet.create({
     capture: {
         width: 80,
         height: 80,
-        marginTop: 100
+        marginTop: '30%'
     }
 })
