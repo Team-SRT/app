@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
 
     report: {
         width: 295,
-        height: 30,
+        height: 35,
     },
 
     text: {
