@@ -6,6 +6,8 @@ import StartView from './views/StartView/StartView'
 import NameView from './views/StartView/NameView'
 import EmailView from './views/StartView/EmailView'
 import CallView from './views/StartView/CallView'
+import DoneView from "./views/ReportView/DoneView";
+import ErrorView from "./views/ReportView/ErrorView";
 import CompleteView from './views/StartView/CompleteView'
 import MainView from './views/MainView/MainView'
 

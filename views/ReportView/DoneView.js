@@ -7,15 +7,15 @@ import {LinearGradient} from "expo-linear-gradient"
 export default function DoneView ({ navigation }) {
     return (
         <View style={styles.container}>
-            <View style={styles.header}>4
+            <View style={styles.header}>
                 <View style={styles.contain}>
                     <Image source={Report} style={styles.report} />
                 </View>
 
                 <Text style={styles.p}>지금부터 간편한 신고 서비스 SRT를 이용해주세요</Text>
-            </View>
 
-            <Image source={Check} style={styles.check} />
+                <Image source={Check} style={styles.check} />
+            </View>
 
             <LinearGradient colors={['#85F4FF', '#0CF']} start={{ x: 0, y: 0}} end={{x: 1, y: 1}} style={styles.gradient} onTouchEnd={() => navigation.navigate('Call')}>
                 <Text style={styles.btnTxt}>완료하기</Text>
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     },
 
     report: {
-        width: 80,
+        width: 295,
         height: 30,
     },
 
@@ -74,7 +74,19 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
 
-    check: {
+    contain: {
+        width: '80%',
+        flex: 0,
+        alignItems: 'center',
+        flexDirection: 'row',
+        marginBottom: 10
+    },
 
+    check: {
+        width: 220,
+        height: 220,
+        flexShrink: 0,
+        marginTop: 130,
+        marginBottom: -200
     }
 })
