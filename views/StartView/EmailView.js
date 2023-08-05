@@ -26,10 +26,10 @@ export default function EmailView ({ navigation }) {
 
         <View style={styles.contain}>
           <Image source={Email} style={styles.name} />
-          <Text style={styles.text}>을 입력해주세요.</Text>
+          <Text style={styles.text}>을 입력해주세요</Text>
         </View>
 
-        <Text style={styles.p}>본인의 이메일을 입력해주세요.</Text>
+        <Text style={styles.p}>본인의 이메일을 입력해주세요</Text>
 
         <TextInput placeholder={'ex) bluearchive@nexon.com'} style={styles.textField} onChangeText={(e) => setEmail(e)} />
       </View>

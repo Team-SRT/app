@@ -26,10 +26,10 @@ export default function NameView ({ navigation }) {
 
         <View style={styles.contain}>
           <Image source={Name} style={styles.name} />
-          <Text style={styles.text}>을 입력해주세요.</Text>
+          <Text style={styles.text}>을 입력해주세요</Text>
         </View>
 
-        <Text style={styles.p}>본인의 이름을 입력해주세요.</Text>
+        <Text style={styles.p}>본인의 이름을 입력해주세요</Text>
 
         <TextInput placeholder={'ex) 호시노 아이'} style={styles.textField} onChangeText={(e) => setName(e)} />
       </View>

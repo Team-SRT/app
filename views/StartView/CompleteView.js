@@ -1,14 +1,11 @@
-import {useState} from "react"
 import asyncStorage from "@react-native-async-storage/async-storage/src/AsyncStorage"
 import {View, StyleSheet, Text, Image, TextInput} from "react-native"
 import Svg, {G, Path} from "react-native-svg"
 
-import Call from '../../assets/img/call.png'
+import Complete from '../../assets/img/complete.png'
 import {LinearGradient} from "expo-linear-gradient"
 
-export default function CallView ({ navigation }) {
-    const [call, setCall] = useState('')
-
+export default function CompleteView ({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -21,25 +18,19 @@ export default function CallView ({ navigation }) {
                             </G>
                         </Svg>
                     </View>
-                    <Text style={styles.step}>3 / 4</Text>
+                    <Text style={styles.step}>4 / 4</Text>
                 </View>
 
                 <View style={styles.contain}>
                     <Image source={Call} style={styles.name} />
-                    <Text style={styles.text}>를 입력해주세요</Text>
                 </View>
 
-                <Text style={styles.p}>본인의 전화번호를 입력해주세요</Text>
+                <Text style={styles.p}>지금부터 간편한 신고 서비스 SRT를 이용해주세요</Text>
 
                 <TextInput placeholder={'ex) 010-1234-5678'} style={styles.textField} />
             </View>
 
-            <LinearGradient colors={['#85F4FF', '#0CF']} start={{ x: 0, y: 0}} end={{x: 1, y: 1}} style={styles.gradient}
-                            onTouchEnd={async () => {
-                              console.log(`Call: ${call}`)
-                              await asyncStorage.setItem('call', call)
-                              navigation.navigate('Complete')
-                            }}>
+            <LinearGradient colors={['#85F4FF', '#0CF']} start={{ x: 0, y: 0}} end={{x: 1, y: 1}} style={styles.gradient} onTouchEnd={async () => navigation.navigate('Main')}>
                 <Text style={styles.btnTxt}>다음으로</Text>
             </LinearGradient>
         </View>
