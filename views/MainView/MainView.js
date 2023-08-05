@@ -27,7 +27,10 @@ export default function MainView({ navigation }) {
     }
     return (
         <View style={styles.container}>
-            <View style={styles.appbar}>
+            <View style={styles.appbar}
+            onTouchEnd={async () => {
+                navigation.navigate('Setting')
+            }}>
 
                 {/* 3 Lines */}
                 <Svg width="40" height="40" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">

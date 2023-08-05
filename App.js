@@ -11,6 +11,7 @@ import ErrorView from "./views/ReportView/ErrorView"
 import CompleteView from './views/StartView/CompleteView'
 import MainView from './views/MainView/MainView'
 import LoadingView from "./views/ReportView/LoadingView";
+import SettingView from "./views/ExtraView/SettingView";
 
 export default function App() {
   const Stack = createNativeStackNavigator()
@@ -27,6 +28,7 @@ export default function App() {
         <Stack.Screen name={'Done'} component={DoneView} options={{ headerShown: false }} />
         <Stack.Screen name={'Error'} component={ErrorView} options={{ headerShown: false }} />
         <Stack.Screen name={'Loading'} component={LoadingView} options={{ headerShown: false }} />
+        <Stack.Screen name={'Setting'} component={SettingView} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   )
