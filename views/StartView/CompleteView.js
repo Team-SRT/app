@@ -3,6 +3,7 @@ import {View, StyleSheet, Text, Image, TextInput} from "react-native"
 import Svg, {G, Path} from "react-native-svg"
 
 import Complete from '../../assets/img/complete.png'
+import Check from '../../assets/img/check.png'
 import {LinearGradient} from "expo-linear-gradient"
 
 export default function CompleteView ({ navigation }) {
@@ -22,16 +23,16 @@ export default function CompleteView ({ navigation }) {
                 </View>
 
                 <View style={styles.contain}>
-                    <Image source={Call} style={styles.name} />
+                    <Image source={Complete} style={styles.name} />
                 </View>
 
                 <Text style={styles.p}>지금부터 간편한 신고 서비스 SRT를 이용해주세요</Text>
 
-                <TextInput placeholder={'ex) 010-1234-5678'} style={styles.textField} />
+                <Image source={Check} style={styles.check} />
             </View>
 
             <LinearGradient colors={['#85F4FF', '#0CF']} start={{ x: 0, y: 0}} end={{x: 1, y: 1}} style={styles.gradient} onTouchEnd={async () => navigation.navigate('Main')}>
-                <Text style={styles.btnTxt}>다음으로</Text>
+                <Text style={styles.btnTxt}>완료하기</Text>
             </LinearGradient>
         </View>
     )
@@ -78,8 +79,8 @@ const styles = StyleSheet.create({
     },
 
     name: {
-        width: 120,
-        height: 30,
+        width: 310,
+        height: 35,
     },
 
     text: {
@@ -117,5 +118,12 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontWeight: "600",
         fontSize: 20
+    },
+
+    check: {
+        width: 200,
+        height: 200,
+        marginTop: 130,
+        marginBottom: -200
     }
 })
