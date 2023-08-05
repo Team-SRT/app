@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
 
   text: {
     color: '#fff',
-    fontWeight: "600",
+    fontWeight: 600,
     fontSize: 20
   },
 
@@ -61,6 +61,6 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize: 40,
-    fontWeight: '600'
+    fontWeight: 600
   }
 })

@@ -31,7 +31,7 @@ export default function CompleteView ({ navigation }) {
                 <Image source={Check} style={styles.check} />
             </View>
 
-            <LinearGradient colors={['#85F4FF', '#0CF']} start={{ x: 0, y: 0}} end={{x: 1, y: 1}} style={styles.gradient} onTouchEnd={async () => navigation.navigate('Main')}>
+            <LinearGradient colors={['#85F4FF', '#0CF']} start={{ x: 0, y: 0}} end={{x: 1, y: 1}} style={styles.gradient} onTouchEnd={async () => navigation.reset()}>
                 <Text style={styles.btnTxt}>완료하기</Text>
             </LinearGradient>
         </View>
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
 
     text: {
         fontSize: 32,
-        fontWeight: 'bold'
+        fontWeight: 900
     },
 
     p: {
@@ -116,13 +116,13 @@ const styles = StyleSheet.create({
 
     btnTxt: {
         color: '#fff',
-        fontWeight: "600",
+        fontWeight: 600,
         fontSize: 20
     },
 
     check: {
-        width: 200,
-        height: 200,
+        width: 220,
+        height: 220,
         marginTop: 130,
         marginBottom: -200
     }
