@@ -14,7 +14,7 @@ export default function ErrorView ({ navigation }) {
 
                 <Text style={styles.p}>error code:504</Text>
 
-                <Image source={Error} style={styles.error} />
+                <Image source={Error} style={styles.check} />
             </View>
 
             <LinearGradient colors={['#F86060', '#860E0E']} start={{ x: 0, y: 0}} end={{x: 1, y: 1}} style={styles.gradient} onTouchEnd={() => navigation.navigate('Call')}>
@@ -82,10 +82,11 @@ const styles= StyleSheet.create({
         marginBottom: 10
     },
 
-    error: {
-        width: 221,
-        height: 221,
+    check: {
+        width: 220,
+        height: 220,
         flexShrink: 0,
-        top: 200
+        marginTop: 130,
+        marginBottom: -200
     }
 })

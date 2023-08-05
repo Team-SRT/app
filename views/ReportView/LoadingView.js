@@ -19,7 +19,7 @@ export default function LoadingView ({ navigation }) {
 
                 <Text style={styles.p}>잠시만 기다려주시면 신고가 완료 됩니다</Text>
 
-                <Image source={Loading} style={styles.loading} />
+                <Image source={Loading} style={styles.check} />
             </View>
 
             <LinearGradient colors={['#52C192', '#0C4E30']} start={{ x: 0, y: 0}} end={{x: 1, y: 1}} style={styles.gradient} onTouchEnd={() => navigation.navigate('Main')}>
@@ -87,10 +87,11 @@ const styles= StyleSheet.create({
         marginBottom: 10
     },
 
-    loading: {
-        width: 221,
-        height: 221,
+    check: {
+        width: 220,
+        height: 220,
         flexShrink: 0,
-        top: 200
+        marginTop: 130,
+        marginBottom: -200
     }
 })
