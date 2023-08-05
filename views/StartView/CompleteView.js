@@ -1,10 +1,10 @@
 import asyncStorage from "@react-native-async-storage/async-storage/src/AsyncStorage"
 import {View, StyleSheet, Text, Image, TextInput} from "react-native"
+import {LinearGradient} from "expo-linear-gradient"
 import Svg, {G, Path} from "react-native-svg"
 
 import Complete from '../../assets/img/complete.png'
 import Check from '../../assets/img/check.png'
-import {LinearGradient} from "expo-linear-gradient"
 
 export default function CompleteView ({ navigation }) {
     return (
@@ -31,7 +31,7 @@ export default function CompleteView ({ navigation }) {
                 <Image source={Check} style={styles.check} />
             </View>
 
-            <LinearGradient colors={['#85F4FF', '#0CF']} start={{ x: 0, y: 0}} end={{x: 1, y: 1}} style={styles.gradient} onTouchEnd={async () => navigation.reset()}>
+            <LinearGradient colors={['#85F4FF', '#0CF']} start={{ x: 0, y: 0}} end={{x: 1, y: 1}} style={styles.gradient} onTouchEnd={async () => navigation.navigate('Main')}>
                 <Text style={styles.btnTxt}>완료하기</Text>
             </LinearGradient>
         </View>

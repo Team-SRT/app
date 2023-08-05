@@ -1,15 +1,36 @@
-import {useEffect, useRef} from "react"
-import {StyleSheet, TouchableOpacity, View} from "react-native"
-import Svg, {Path} from "react-native-svg"
-import {AutoFocus, Camera, CameraType} from "expo-camera"
+import {useEffect, useRef, useState} from "react"
+import {Image, StyleSheet, TouchableOpacity, View} from "react-native"
+import Svg, {   Path} from "react-native-svg"
+import {Camera} from "expo-camera"
+
+import Capture from '../../assets/img/wave.png'
 
 export default function MainView({ navigation }) {
-    const cameraRef = useRef(null)
+    const [camera, setCamera] = useState(null)
+    const [hasPermission, setHasPermission] = useState(null)
+    const [type, setType] = useState(Camera.Constants.Type.back)
+    const [image, setImage] = useState()
 
     useEffect(() => {
-        navigation.reset()
+        (async () => {
+            const { status } = await Camera.requestCameraPermissionsAsync()
+            setHasPermission(status === 'granted')
+        })()
     }, [])
 
+    const takePicture = async() => {
+        if (camera) {
+            const data = await camera.takePictureAsync(null)
+            setImage(data.url)
+        }
+    }
+
+    if (hasPermission === null) {
+        return <View />
+    }
+    if (hasPermission === false) {
+        return <Text>No access to camera</Text>
+    }
     return (
         <View style={styles.container}>
             <View style={styles.appbar}>
@@ -22,12 +43,29 @@ export default function MainView({ navigation }) {
                 </Svg>
             </View>
 
-            <Camera
-                ref={cameraRef}
-                type={CameraType.back}
-                autoFocus={AutoFocus.on}
-                // whiteBalance={toggleWhiteBalance}
-            />
+            <View style={styles.cameraContain}>
+                <Camera style={styles.camera} type={type} ref={(ref) => setCamera(ref)}>
+                    <View style={styles.buttonContainer}>
+                        <TouchableOpacity
+                            style={styles.button}
+                            onPress={() => {
+                                setType(Camera.Constants.Type.back);
+                            }}>
+                        </TouchableOpacity>
+                    </View>
+                </Camera>
+            </View>
+
+            <View onTouchEnd={async () => {
+                console.log('snap!')
+                if(camera){
+                    const data = await camera.takePictureAsync(null)
+                    setImage(data.uri)
+                    console.log(data.uri)
+                }
+            }}>
+                <Image source={Capture} style={styles.capture} />
+            </View>
         </View>
     )
 }
@@ -35,12 +73,40 @@ export default function MainView({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor: '#F4F6F8'
     },
 
     appbar: {
-        width: '80%'
+        width: '80%',
+        marginTop: 80
+    },
+
+    camera: {
+        flex: 1,
+        width: '100%',
+        height: 400
+    },
+
+    cameraContain: {
+        width: '80%',
+        height: 400,
+        borderRadius: 10,
+        backgroundColor: '#fff',
+        marginTop: 20
+    },
+
+    buttonContainer: {
+        flex: 1,
+        backgroundColor: 'transparent',
+        flexDirection: 'row',
+        margin: 20,
+    },
+
+    capture: {
+        width: 80,
+        height: 80,
+        marginTop: 100
     }
 })
